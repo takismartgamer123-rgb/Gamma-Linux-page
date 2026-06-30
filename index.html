@@ -1,425 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamma Linux - Official Hub</title>
-    <style>
-        :root {
-            --bg-color: #050505;
-            --card-bg: #0d0d0d;
-            --accent-color: #00c853;
-            --accent-hover: #00e676;
-            --danger-color: #ff3d00;
-            --text-color: #b3b3b3;
-            --text-light: #ffffff;
-            --border-color: #1a1a1a;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(180deg, #000000 0%, #0d0d0d 100%);
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        header h1 {
-            color: var(--text-light);
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            color: var(--accent-color);
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .quote {
-            background-color: var(--card-bg);
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            border-radius: 0 8px 8px 0;
-            color: var(--text-light);
-        }
-
-        h2 {
-            color: var(--text-light);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-top: 50px;
-            font-size: 1.8rem;
-        }
-
-        .warning-box {
-            background-color: #1a0602;
-            border: 1px solid var(--danger-color);
-            border-left: 5px solid var(--danger-color);
-            border-radius: 8px;
-            padding: 25px;
-            margin: 40px 0;
-            color: #ff9e80;
-        }
-
-        .warning-box h3 {
-            color: var(--danger-color);
-            margin-top: 0;
-            font-size: 1.4rem;
-        }
-
-        .warning-box code {
-            background-color: #2a0b05;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #fff;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .card h3 {
-            color: var(--text-light);
-            margin-top: 0;
-            border-bottom: 1px solid #222;
-            padding-bottom: 8px;
-        }
-
-        .ram-tag {
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background-color: #000;
-            color: var(--text-light);
-        }
-
-        .gamma-row {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #000;
-            padding: 12px 28px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            margin-top: 15px;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .social-btn {
-            display: inline-block;
-            background-color: #1e1e1e;
-            color: #fff;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            margin: 10px;
-            border: 1px solid var(--border-color);
-            font-weight: bold;
-        }
-
-        .social-btn:hover {
-            border-color: var(--accent-color);
-        }
-
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            color: #555;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 80px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gamma Linux - Official Hub</title>
+<style>
+:root { --bg: #030303; --card: #0a0a0a; --accent: #00c853; --accent2: #00e676; --danger: #ff3d00; --text: #b3b3b3; --light: #fff; --border: #1a1a1a; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.7; }
+nav { position: fixed; top: 0; width: 100%; background: rgba(3,3,3,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 999; padding: 14px 20px; text-align: center; }
+nav a { color: var(--text); text-decoration: none; margin: 0 14px; font-weight: 700; }
+nav a:hover { color: var(--accent); }
+.hero { padding: 160px 20px 120px; text-align: center; background: radial-gradient(1200px 600px at 50% -10%, rgba(0,200,83,.15), transparent 60%); }
+.hero h1 { font-size: 4.5rem; margin: 0; color: var(--light); letter-spacing: 3px; }
+.hero p { font-size: 1.4rem; color: var(--accent); margin: 16px 0 30px; }
+.btn { display: inline-block; background: var(--accent); color: #000; padding: 16px 38px; border-radius: 50px; font-weight: 900; text-decoration: none; margin: 8px; transition:.2s; border: none; cursor: pointer; font-size: 1rem; }
+.btn:hover { transform: translateY(-2px); background: var(--accent2); }
+.btn.ghost { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+section { padding: 100px 0; border-top: 1px solid var(--border); }
+h2 { font-size: 2.6rem; color: var(--light); text-align: center; margin: 0 0 50px; }
+.quote { background: var(--card); border-left: 5px solid var(--accent); padding: 30px; font-style: italic; font-size: 1.2rem; color: var(--light); border-radius: 12px; margin-bottom: 50px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; transition:.3s; }
+.card:hover { border-color: var(--accent); transform: translateY(-6px); }
+.card h3 { color: var(--light); margin-top: 0; font-size: 1.4rem; }
+.icon { font-size: 2.5rem; margin-bottom: 10px; }
+.tag { display: inline-block; background: rgba(0,200,83,.1); color: var(--accent); padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size:.85rem; margin-bottom: 12px; }
+.warning { background: #1a0602; border-left: 6px solid var(--danger); padding: 30px; border-radius: 12px; color: #ff9e80; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+th, td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: #000; color: var(--light); }
+.tr-gamma { color: var(--accent); font-weight: 800; }
+img.shot { width: 100%; border-radius: 12px; border: 1px solid var(--border); }
+pre { background: #000; padding: 18px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--border); color: var(--accent); }
+.email-box { display: flex; gap: 10px; align-items: center; justify-content: center; margin: 15px 0; }
+.email-box pre { margin: 0; flex: 1; text-align: center; }
+.copy-btn { padding: 12px 20px; font-size:.9rem; }
+.copied { background: var(--accent2)!important; }
+footer { padding: 80px 20px; background: #000; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; text-align: left; }
+footer h4 { color: var(--light); margin: 0 0 12px; }
+footer a { color: var(--text); text-decoration: none; display: block; margin: 8px 0; }
+footer a:hover { color: var(--accent); }
+.copy { text-align: center; color: #444; margin-top: 40px; font-size:.9rem; }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>👑 GAMMA LINUX</h1>
-        <p>Royal Edition Ultra-Lite • Built for Obsolete Hardware</p>
-    </header>
+<nav>
+<a href="#home">Home</a><a href="#features">Features</a><a href="#download">Download</a>
+<a href="#screenshots">Screenshots</a><a href="#benchmarks">Benchmarks</a><a href="#docs">Install</a>
+<a href="#roadmap">Roadmap</a><a href="#support">Support</a><a href="#sources">Source</a>
+</nav>
 
-    <div class="container">
-        
-        <div class="quote">
-            "Alpha failed. Beta crashed. Gamma survives. Because no PC deserves to die!" ♾️🇩🇿
-        </div>
-
-        <h2>📖 Why I Built This (The Story)</h2>
-        <div class="card">
-            <p>In 2024, my cousin's Pentium 4 PC was considered completely "dead" and unusable for Windows 10 (equipped with only 2GB RAM and an 80GB HDD). Standard lightweight distributions like Lubuntu came as a heavy 2.5GB ISO download and consumed over 400MB of RAM at idle—making old machines laggy and practically useless for modern studies or work. I asked myself: <i>"Why can't a modern Linux distro boot on under 100MB RAM just like systems did in 2005, while still retaining full compatibility with up-to-date web apps?"</i></p>
-            <p>So, I spent 6 months completely self-taught, learning Linux From Scratch (LFS), dissecting the Ubuntu/Debian deployment pipelines, and building aggressive SquashFS compression layers. The result is this operating system: a hyper-optimized distribution engineered to save low-spec machines from electronic waste. Now, that exact old PC seamlessly runs YouTube videos, processes PDFs, handles office documents, and executes tools without a single hiccup!</p>
-        </div>
-
-        <div class="warning-box">
-            <h3>⚠️ CRITICAL INSTALLATION NOTICE: The Windows "Fast Startup" Lock</h3>
-            <p>If you intend to install Gamma Linux in a dual-boot setup next to Windows, you <b>MUST absolutely disable Windows Fast Startup</b> before starting.</p>
-            <p>Windows Fast Startup prevents the system from doing a clean shutdown; it saves the kernel state into a locked file and forces your Hard Drive/SSD partitions into a frozen hibernation mode. If you load into Linux while this active lock remains, your internal drive will appear strictly read-only, and the system installation wizards (Ubiquity/Calamares) will crash or fail to execute partition resizing.</p>
-            <p><b>How to disable it:</b> Open Windows Control Panel -> Power Options -> "Choose what the power buttons do". Click "Change settings that are currently unavailable", untick <b>Turn on fast startup</b>, and hit save. Or instantly run Command Prompt as Admin and write: <code>powercfg /h off</code></p>
-        </div>
-
-        <h2>💿 System Editions & Technical Profiles</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🛑 Gamma Legacy 32</h3>
-                <span class="ram-tag">Target: 512MB RAM</span>
-                <p>Based on stable Debian Bookworm. Tailored for absolute legacy 32-bit hardware architectures. Boots natively via Calamares installer environment.</p>
-            </div>
-            <div class="card">
-                <h3>👻 Gamma Lite Ghost</h3>
-                <span class="ram-tag">Target: 1GB RAM</span>
-                <p>Based on Ubuntu Jammy (64-bit). Stripped clean to core essentials, offering an incredibly snappy and responsive environment on old notebooks.</p>
-            </div>
-            <div class="card">
-                <h3>🔥 Gamma Fatih Pro</h3>
-                <span class="ram-tag">Target: 2GB - 4GB RAM</span>
-                <p>Based on Ubuntu Jammy (64-bit). Tuned specifically for daily productivity, office management, and stable modern web browsing workflows.</p>
-            </div>
-        </div>
-
-        <h2>🛠️ Architecture Breakdown (How it's built)</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>📦 The Core System</h3>
-                <p>Uses <b>ZRAM-Tools</b> out-of-the-box for real-time memory compression, **Preload** to predictively cache application binaries into memory, and **TLP** for advanced power saving and battery management on legacy laptops.</p>
-            </div>
-            <div class="card">
-                <h3>💻 UI / UX Layer</h3>
-                <p>Features the ultra-lite <b>LXQt 1.4</b> desktop environment paired with the **Openbox** window manager. Polished completely with **Materia-Dark** theme assets and modern **Papirus-Dark** icon packages.</p>
-            </div>
-            <div class="card">
-                <h3>🚀 Pure In-House Tools</h3>
-                <p>Includes `gamma-setup` for choosing browsers, `gamma-theme` for fast layout switches, and **Gamma Store Pro v4.1**, an exclusive package manager using GTK layout layers and secure `pkexec` routines to fetch apps without system lockups.</p>
-            </div>
-        </div>
-
-        <h2>📦 Application Ecosystem & RAM Impacts</h2>
-        <p>Gamma Linux installs fully debloated. You only pull exactly what you need down from the repositories via the built-in store utilities. Below is a realistic footprint matrix:</p>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Popular Available Apps</th>
-                        <th>RAM Footprint</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Web Browsers</b></td>
-                        <td>Firefox-ESR, Falkon, Chromium</td>
-                        <td>60 MB - 90 MB</td>
-                    </tr>
-                    <tr>
-                        <td><b>Video / Audio</b></td>
-                        <td>VLC, MPV, FreeTube</td>
-                        <td>40 MB - 80 MB</td>
-                    </tr>
-                    <tr>
-                        <td><b>Office Productivity</b></td>
-                        <td>LibreOffice, OnlyOffice, AbiWord</td>
-                        <td>50 MB - 250 MB</td>
-                    </tr>
-                    <tr>
-                        <td><b>Graphics / Design</b></td>
-                        <td>GIMP, Inkscape, Krita</td>
-                        <td>40 MB - 150 MB</td>
-                    </tr>
-                    <tr>
-                        <td><b>Development / Coding</b></td>
-                        <td>Code-OSS, Geany, Git</td>
-                        <td>20 MB - 80 MB</td>
-                    </tr>
-                    <tr>
-                        <td><b>Retro Gaming & Emulation</b></td>
-                        <td>RetroArch, PCSX2, DuckStation, PPSSPP (Play PS1, PS2, PSP games seamlessly)</td>
-                        <td>40 MB - 200 MB</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>💿 Download Gamma Linux v2.1 Royal</h2>
-<div class="grid">
-  <div class="card" style="border-color: var(--accent-color); text-align: center;">
-    <h3>🛑 Gamma Legacy 32</h3>
-    <span class="ram-tag">For 512MB RAM PCs</span>
-    <p>Debian Bookworm 32-bit • ~1.18GB ISO</p>
-    <a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.1-Royal" class="btn">⬇️ Download ISO</a>
-    <br><small>SHA256: in release page</small>
-  </div>
-  <div class="card" style="border-color: var(--accent-color); text-align: center;">
-    <h3>👻 Gamma Lite Ghost</h3>
-    <span class="ram-tag">For 1GB RAM PCs</span>
-    <p>Ubuntu Jammy 64-bit • ~1.39GB ISO</p>
-    <a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.1-Royal" class="btn">⬇️ Download ISO</a>
-    <br><small>SHA256: In release page</small>
-  </div>
-  <div class="card" style="border-color: var(--accent-color); text-align: center;">
-    <h3>🔥 Gamma Fatih Pro</h3>
-    <span class="ram-tag">For 2GB-4GB RAM PCs</span>
-    <p>Ubuntu Jammy 64-bit • ~1.39GB ISO</p>
-    <a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.1-Royal" class="btn">⬇️ Download ISO</a>
-    <br><small>SHA256: In release page</small>
-  </div>
+<section class="hero" id="home">
+<h1>👑 GAMMA LINUX</h1>
+<p>Royal Edition Ultra-Lite • Resurrect Obsolete Hardware</p>
+<a href="#download" class="btn">⬇️ Download v2.3.0</a>
+<a href="#features" class="btn ghost">✨ See Features</a>
+<div class="container" style="margin-top: 40px;">
+<div class="quote">"Alpha failed. Beta crashed. Gamma survives. Because no PC deserves to die!" ♾️🇩🇿</div>
 </div>
-<p style="text-align: center; margin-top: 20px;">Username: <code>gamma</code> | Password: <code>gamma</code> for Live Mode</p>
-        </div>
+</section>
 
-        <h2>📊 OS Performance Comparison Matrix</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Windows 10 / 11</th>
-                        <th>ChromeOS Flex</th>
-                        <th style="color: var(--accent-color);">Gamma Linux Royal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="gamma-row">
-                        <td>Idle RAM Baseline</td>
-                        <td>2.5 GB - 4.0 GB</td>
-                        <td>900 MB - 1.2 GB</td>
-                        <td>150 MB - 200 MB (Ultra-Lite Only)</td>
-                    </tr>
-                    <tr>
-                        <td>Legacy 32-bit CPU</td>
-                        <td>❌ Unsupported</td>
-                        <td>❌ Unsupported</td>
-                        <td style="color: var(--accent-color);">✅ Fully Supported</td>
-                    </tr>
-                    <tr>
-                        <td>Data Tracking/Telemetry</td>
-                        <td>Aggressive / Built-in</td>
-                        <td>High Ecosystem Logins</td>
-                        <td style="color: var(--accent-color);">✅ ZERO Telemetry</td>
-                    </tr>
-                    <tr>
-                        <td>Storage Footprint</td>
-                        <td>30 GB - 64 GB+</td>
-                        <td>16 GB+</td>
-                        <td style="color: var(--accent-color);">✅ Under 6 GB Installed</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<section id="features">
+<div class="container">
+<h2>⚡ Why Gamma?</h2>
+<div class="grid">
+<div class="card"><div class="icon">👻</div><h3>Ghost Mode RAM</h3><p>ZRAM 50% + Swappiness 100. Runs smooth on 1GB RAM PCs that choke on Lubuntu.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Zero Bloat</h3><p>No Snap. No Flatpak. No Telemetry. Pure APT. ISO only 1.18GB vs 2.5GB.</p></div>
+<div class="card"><div class="icon">🖥️</div><h3>LXQt + Openbox</h3><p>Ultra-light desktop with Materia-Dark + Papirus. Idle RAM: 148MB only.</p></div>
+<div class="card"><div class="icon">🔒</div><h3>Secure Boot</h3><p>UEFI + BIOS Hybrid with signed GRUB. Boots on any PC from 2005 to 2026.</p></div>
+<div class="card"><div class="icon">🚀</div><h3>Fully De-Bloated , Zero Telemetry</h3><p>System becomes empty really! , PC is yours no tracking like windows.</p></div>
+<div class="card"><div class="icon">🛠️</div><h3>Gamma Store Pro (soon)</h3><p>Exclusive GTK app store v4.1. Install.deb without system lockups.</p></div>
+</div>
+</div>
+</section>
 
-        <h2>❓ Frequently Asked Questions (FAQ)</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>❓ Can I run Windows applications (.exe)?</h3>
-                <p><b>Yes!</b> You can install Wine compatibility layers straight through the built-in Gamma Store. Once deployed, you can execute stable legacy <code>.exe</code> files like MS Office 2010 or Photoshop CS6 flawlessly.</p>
-            </div>
-            <div class="card">
-                <h3>❓ Why are Snap and Flatpak excluded by default?</h3>
-                <p>Snap runtimes introduce an automatic 500MB background bloat, and Flatpak layers add roughly 300MB. To keep things as light as possible, Gamma ships exclusively relying on rapid APT mirror architectures. You can easily install them via the Store if needed.</p>
-            </div>
-            <div class="card">
-                <h3>❓ Will this work on an extremely old 2006 laptop?</h3>
-                <p><b>Absolutely!</b> As long as the system features at least a Pentium 4 or newer CPU and a minimum of 1GB RAM, the answer is yes. The Lite base environment has been thoroughly benchmarked and tested on 2005-era Dell Inspiron models.</p>
-            </div>
-            <div class="card">
-                <h3>❓ Is Gamma Linux safe and open-source?</h3>
-                <p><b>100% Secure.</b> The software is open-source under the terms of the GPL v3 license. There is absolutely no telemetry tracking or spyware embedded. All source configuration arrays are hosted transparently on GitHub.</p>
-            </div>
-            <div class="card">
-                <h3>❓ How can I verify the file integrity?</h3>
-                <p>To ensure safe downloads without corruption, compare your downloaded ISO checksum with the hashes listed inside the official <code>SHA256SUMS.txt</code> file in the assets folder.</p>
-            </div>
-            <div class="card">
-                <h3>❓ Do you provide updates or support?</h3>
-                <p><b>Yes!</b> The system receives updates directly from active upstream mirrors. For technical help, installation guidance, or package requests, you can interact directly with our expanding community hub.</p>
-            </div>
-        </div>
+<section id="download">
+<div class="container">
+<h2>💿 Download Editions</h2>
+<div class="grid">
+<div class="card" style="text-align:center;"><h3>🛑 Legacy 32</h3><span class="tag">512MB RAM | 32-bit</span><p>Debian Bookworm • ~766 MB</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.3.0-FINAL-legacy32" class="btn">Download</a></div>
+<div class="card" style="text-align:center; border:2px solid var(--accent);"><h3>👻 Lite Ghost</h3><span class="tag">1GB RAM | 64-bit</span><p>Ubuntu + ZRAM 50% • ~1.75GB</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.3.0-FINAL-lite-ghost" class="btn">Download</a></div>
+<div class="card" style="text-align:center;"><h3>🔥 Fatih Pro</h3><span class="tag">2GB+ RAM | 64-bit</span><p>Ubuntu + ZRAM 25% • ~1.76GB</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.3.0-FINAL-pro-maxmini" class="btn">Download</a></div>
+</div>
+<p style="text-align:center; margin-top: 30px;">Live Mode: <code>gamma / gamma</code> | Check SHA256SUMS.txt</p>
+</div>
+</section>
 
-        <h2>👥 Join Our Community & Contribute</h2>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="https://github.com/takismartgamer123-rgb/Gamma-linux" class="social-btn" style="color: #ffca28;">⭐ Star on GitHub</a>
-            <a href="https://t.me/GammaLinuxDZ" class="social-btn" style="color: #29b6f6;">💬 Telegram Community</a>
-            <a href="YOUR_YOUTUBE_LINK" class="social-btn" style="color: #ef5350;">📺 YouTube Channel(coming soon)</a>
-        </div>
+<section id="screenshots">
+<div class="container">
+<h2>🖼️ Screenshots (soon)</h2>
+<div class="grid">
+<div class="card"><h3>Desktop</h3><img class="shot" src="https://placehold.co/800x500/0a0a0a/00c853?text=Gamma+LXQt+Desktop" alt="Desktop"></div>
+<div class="card"><h3>Gamma Store</h3><img class="shot" src="https://placehold.co/800x500/0a0a0a/00c853?text=Gamma+Store+v4.1" alt="Store"></div>
+<div class="card"><h3>System Monitor</h3><img class="shot" src="https://placehold.co/800x500/0a0a0a/00c853?text=148MB+RAM+Idle" alt="RAM"></div>
+</div>
+</div>
+</section>
 
-        <h2>🛠️ About The Developer</h2>
-        <div class="card" style="text-align: center; border-color: var(--accent-color);">
-            <h3>Taki - 17 Years Old</h3>
-            <p><b>Location:</b> Guelma, Algeria 🇩🇿 | 100% Self-Taught Linux Developer</p>
-            <p><i>"Mission: No PC deserves to die, No ISO deserves to be fat."</i> 🎯</p>
-            <p>Started exploring systems at age 16, released v1.4 at 17, combining customized core bases, absolute optimizations, and deep development passion.</p>
-        </div>
+<section id="benchmarks">
+<div class="container">
+<h2>📊 Performance vs Others</h2>
+<table>
+<thead><tr><th>Metric</th><th>Win 11</th><th>Lubuntu 24</th><th class="tr-gamma">Gamma Lite</th></tr></thead>
+<tbody>
+<tr><td>Idle RAM</td><td>3.8 GB</td><td>420 MB</td><td class="tr-gamma">148 MB</td></tr>
+<tr><td>ISO Size</td><td>5.8 GB</td><td>2.5 GB</td><td class="tr-gamma">1.75 GB</td></tr>
+<tr><td>Boot HDD</td><td>45s</td><td>28s</td><td class="tr-gamma">18s</td></tr>
+<tr><td>32-bit CPU</td><td>❌</td><td>❌</td><td class="tr-gamma">✅</td></tr>
+<tr><td>Telemetry</td><td>Yes</td><td>No</td><td class="tr-gamma">ZERO</td></tr>
+</tbody>
+</table>
+</div>
+</section>
 
-    </div>
+<section id="docs">
+<div class="container">
+<h2>🛠️ Installation</h2>
+<div class="warning"><h3>⚠️ CRITICAL: Disable Windows Fast Startup- Read or lose Windows !</h3><p>Run <code>powercfg /h off and disable "Fast startup" option in battery settings (Serach in Google)</code> as Admin, or your disk will be read-only.</p></div>
+<div class="grid">
+<div class="card"><h3>1. Burn USB</h3><p>Use Ventoy or Rufus for windows users or "sudo dd" if you are a professional linux user. Copy ISO. Boot anywhere.</p></div>
+<div class="card"><h3>2. Boot Live (Recommend to test firstly)</h3><p>F12 -> USB -> Login: gamma/gamma</p></div>
+<div class="card"><h3>3. Install</h3><p>Click "Install Gamma". 5 minutes.</p></div>
+</div>
+</div>
+<div class="card"><h3>NOTE : If "Install Gamma" does not appear in Desktop, Shutdown and boot from USB again and choose "Install Gamma"in boot menu</h3>
+</div>
+</section>
 
-    <footer>
-        Gamma Linux is free software licensed under GPL v3. Made with ❤️ in Guelma, Algeria 🇩🇿<br>
-        Wholeheartedly dedicated to the loving my father, <b>Fateh</b> ♾️. All Rights Reserved.
-    </footer>
+<section id="roadmap">
+<div class="container">
+<h2>🗺️ Roadmap v3.0</h2>
+<div class="card">
+<ul>
+<li>✅ v2.3.0 - Ghost Mode + ZRAM 50% [Released]</li>
+<li>🚧 v2.4.0 - ARM64 Build for Raspberry Pi [Q1 2026]</li>
+<li>🚧 v3.0.0 - Wayland + Sway Ultra-Lite [Q2 2026]</li>
+<li>💡 v3.1.0 - Gamma AI Assistant built-in </li>
+</ul>
+</div>
+</div>
+</section>
 
+<section id="support">
+<div class="container">
+<h2>❤️ Support Gamma Linux</h2>
+<div class="grid">
+
+<div class="card" style="text-align:center;">
+<h3>💚 NC Wallet</h3>
+<p>Send Crypto directly. Fastest way in World. 0 fees.</p>
+<div class="email-box">
+<pre id="nc-email">takismartgamer123@gmail.com</pre>
+<button class="btn copy-btn" onclick="copyEmail()">📋 Copy</button>
+</div>
+<p style="font-size:.9rem;">NC Wallet App -> Send -> To Email</p>
+<a href="https://ncwallet.net/" class="btn ghost" target="_blank">⬇️ Get NC Wallet</a>
+</div>
+
+<div class="card" style="text-align:center; border:2px solid var(--accent);">
+<h3>⭐ Telegram Stars → TON</h3>
+<p>Send Stars in 1 click. I cash them to TON weekly.</p>
+<a href="https://t.me/its_black_taki" class="btn" target="_blank">⭐ Send Stars</a>
+<p style="font-size:.9rem; margin-top:10px;">@its_black_taki -> 3 dots -> Send Gift -> Choose amount -> confirm -> Thanks 🙏</p></p></p></p>
+</div>
+
+<div class="card" style="text-align:center;">
+<h3>💎 TON Wallet</h3>
+<p>Direct TON/USDT. 0% fees. Best for crypto.</p>
+<pre style="font-size:.85rem; text-align:left; word-break:break-all;">
+UQBMqSAS51v9NvuwQfZCkJsGv56N6qIRE_eM7CNXEY8h-3JN
+</pre>
+<p style="font-size:.9rem;">Replace with your TON address later</p>
+<a href="https://tonkeeper.com/" class="btn ghost" target="_blank">⬇️ Tonkeeper</a>
+</div>
+
+</div>
+
+<h2 style="margin-top: 80px;">🏆 Hall of Fame</h2>
+<div class="card" style="text-align:center;">
+<p style="font-size: 1.1rem; line-height:2;">
+<b>Fateh</b> - My father ♾️<br>
+<b>NC + Stars + TON Supporters</b> - You guys ❤️<br>
+</p>
+</div>
+</div>
+</section>
+
+<section id="sources">
+<div class="container">
+<h2>📦 Open Source GPL v3</h2>
+<div class="card">
+<p>100% Transparent. No spyware. Rebuild it yourself:</p>
+<pre>git clone https://github.com/takismartgamer123-rgb/Gamma-linux.git</pre>
+<a href="https://github.com/takismartgamer123-rgb/Gamma-linux" class="btn">GitHub Repo</a>
+<a href="https://www.gnu.org/licenses/gpl-3.0.html" class="btn ghost">License</a>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2>🛠️ About The Developer</h2>
+<div class="card" style="text-align:center; border-color: var(--accent);">
+<h3>Taki - 17 Years Old</h3>
+<p><b>Guelma, Algeria 🇩🇿</b> | Self-Taught LFS Developer</p>
+<p><i>"Mission: No PC deserves to die, No ISO deserves to be fat."</i> 🎯</p>
+<p>Started at 16. Released v1.4 at 17. Building the future on old hardware.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div><h4>Download</h4><a href="#download">Legacy 32</a><a href="#download">Lite Ghost</a><a href="#download">Fatih Pro</a></div>
+<div><h4>Community</h4><a href="https://t.me/GammaLinuxDZ">Telegram</a><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/issues">Issues</a><a href="#sources">GitHub</a></div>
+<div><h4>Docs</h4><a href="#docs">Install Guide</a><a href="#benchmarks">Benchmarks</a><a href="#roadmap">Roadmap</a></div>
+<div><h4>Legal</h4><a> href="https://www.gnu.org/licenses/gpl-3.0.html">GPL v3</a><a href="#sources">Source Code</a></div>
+</div>
+<div class="copy">
+Gamma Linux GPL v3 | Made with ❤️ in Guelma, Algeria 🇩🇿<br>
+Dedicated to my father, <b>Fateh</b> ♾️
+</div>
+</footer>
+
+<script>
+function copyEmail() {
+  const email = document.getElementById('nc-email').innerText;
+  navigator.clipboard.writeText(email);
+  const btn = document.querySelector('.copy-btn');
+  btn.innerText = '✅ Copied!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.innerText = '📋 Copy';
+    btn.classList.remove('copied');
+  }, 2000);
+}
+</script>
 </body>
-</html>
+    </html>
