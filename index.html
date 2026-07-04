@@ -3,102 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gamma Linux - Official Hub</title>
+<title>Gamma Linux - v2.6.5 Tank Edition</title>
 <style>
-:root { --bg: #030303; --card: #0a0a0a; --accent: #00c853; --accent2: #00e676; --danger: #ff3d00; --text: #b3b3b3; --light: #fff; --border: #1a1a1a; }
+:root { --bg: #030303; --card: #0a0a0a; --accent: #00c853; --accent2: #00e676; --danger: #ff3d00; --text: #b3b3b3; --light: #fff; --border: #1a1a1a; --msn: #0084ff; --vote: #ff9800; --git: #6e40c9; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.7; }
-nav { position: fixed; top: 0; width: 100%; background: rgba(3,3,3,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 999; padding: 14px 20px; text-align: center; }
-nav a { color: var(--text); text-decoration: none; margin: 0 14px; font-weight: 700; }
+
+nav { position: fixed; top: 0; width: 100%; background: rgba(3,3,3,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 999; padding: 14px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+nav a { color: var(--text); text-decoration: none; font-weight: 700; padding: 6px 10px; }
 nav a:hover { color: var(--accent); }
-.hero { padding: 160px 20px 120px; text-align: center; background: radial-gradient(1200px 600px at 50% -10%, rgba(0,200,83,.15), transparent 60%); }
-.hero h1 { font-size: 4.5rem; margin: 0; color: var(--light); letter-spacing: 3px; }
-.hero p { font-size: 1.4rem; color: var(--accent); margin: 16px 0 30px; }
-.btn { display: inline-block; background: var(--accent); color: #000; padding: 16px 38px; border-radius: 50px; font-weight: 900; text-decoration: none; margin: 8px; transition:.2s; border: none; cursor: pointer; font-size: 1rem; }
+
+.hero { padding: clamp(120px, 20vw, 160px) 20px clamp(80px, 15vw, 120px); text-align: center; background: radial-gradient(1200px 600px at 50% -10%, rgba(0,200,83,.15), transparent 60%); }
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0; color: var(--light); letter-spacing: 3px; word-break: break-word; }
+.hero p { font-size: clamp(1rem, 3vw, 1.4rem); color: var(--accent); margin: 16px 0 30px; }
+
+.btn { display: inline-block; background: var(--accent); color: #000; padding: 14px 28px; border-radius: 50px; font-weight: 900; text-decoration: none; margin: 8px 6px; transition:.2s; border: none; cursor: pointer; font-size: clamp(.9rem, 2.5vw, 1rem); }
 .btn:hover { transform: translateY(-2px); background: var(--accent2); }
 .btn.ghost { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-section { padding: 100px 0; border-top: 1px solid var(--border); }
-h2 { font-size: 2.6rem; color: var(--light); text-align: center; margin: 0 0 50px; }
-.quote { background: var(--card); border-left: 5px solid var(--accent); padding: 30px; font-style: italic; font-size: 1.2rem; color: var(--light); border-radius: 12px; margin-bottom: 50px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; transition:.3s; }
+.btn.msn { background: var(--msn); color: #fff; }
+.btn.msn:hover { background: #0099ff; }
+.btn.vote { background: var(--vote); color: #000; }
+.btn.vote:hover { background: #ffb74d; }
+.btn.git { background: var(--git); color: #fff; }
+.btn.git:hover { background: #8a63d2; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 24px); }
+section { padding: clamp(60px, 12vw, 100px) 0; border-top: 1px solid var(--border); }
+h2 { font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--light); text-align: center; margin: 0 0 40px; }
+
+.quote { background: var(--card); border-left: 5px solid var(--accent); padding: clamp(20px, 4vw, 30px); font-style: italic; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--light); border-radius: 12px; margin-bottom: 40px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(16px, 3vw, 30px); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: clamp(20px, 4vw, 30px); transition:.3s; }
 .card:hover { border-color: var(--accent); transform: translateY(-6px); }
-.card h3 { color: var(--light); margin-top: 0; font-size: 1.4rem; }
-.icon { font-size: 2.5rem; margin-bottom: 10px; }
+.card h3 { color: var(--light); margin-top: 0; font-size: clamp(1.2rem, 3vw, 1.4rem); }
+.icon { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 10px; }
 .tag { display: inline-block; background: rgba(0,200,83,.1); color: var(--accent); padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size:.85rem; margin-bottom: 12px; }
-.warning { background: #1a0602; border-left: 6px solid var(--danger); padding: 30px; border-radius: 12px; color: #ff9e80; }
-table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-th, td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+
+.warning { background: #1a0602; border-left: 6px solid var(--danger); padding: clamp(20px, 4vw, 30px); border-radius: 12px; color: #ff9e80; }
+
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; display: block; }
+thead, tbody, tr { display: table; width: 100%; table-layout: fixed; }
+th, td { padding: clamp(12px, 2vw, 16px); text-align: left; border-bottom: 1px solid var(--border); font-size: clamp(.85rem, 2vw, 1rem); word-wrap: break-word; }
 th { background: #000; color: var(--light); }
 .tr-gamma { color: var(--accent); font-weight: 800; }
-img.shot { width: 100%; border-radius: 12px; border: 1px solid var(--border); }
-pre { background: #000; padding: 18px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--border); color: var(--accent); }
-.email-box { display: flex; gap: 10px; align-items: center; justify-content: center; margin: 15px 0; }
-.email-box pre { margin: 0; flex: 1; text-align: center; }
-.copy-btn { padding: 12px 20px; font-size:.9rem; }
-.copied { background: var(--accent2)!important; }
-footer { padding: 80px 20px; background: #000; border-top: 1px solid var(--border); }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; text-align: left; }
+
+pre { background: #000; padding: 14px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--border); color: var(--accent); font-size: clamp(.8rem, 2vw,.9rem); word-break: break-all; }
+
+footer { padding: clamp(50px, 10vw, 80px) 20px; background: #000; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: clamp(20px, 4vw, 40px); max-width: 1200px; margin: 0 auto; text-align: left; }
 footer h4 { color: var(--light); margin: 0 0 12px; }
 footer a { color: var(--text); text-decoration: none; display: block; margin: 8px 0; }
 footer a:hover { color: var(--accent); }
-.copy { text-align: center; color: #444; margin-top: 40px; font-size:.9rem; }
+.copy { text-align: center; color: #444; margin-top: 40px; font-size: clamp(.8rem, 2vw,.9rem); }
+ul { padding-left: 20px; }
+li { margin-bottom: 10px; }
+
+/* ========== 24/7 BADGE ========== */
+.badge-24 { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,132,255,.15); color: var(--msn); border: 1px solid var(--msn); padding: 6px 14px; border-radius: 50px; font-weight: 800; font-size:.9rem; }
+.dot { width: 8px; height: 8px; background: var(--msn); border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:.5; transform:scale(1.3)} }
+
+/* ========== MOBILE FIXES ========== */
+@media (max-width: 600px) {
+  nav { padding: 10px; }
+  nav a { font-size:.9rem; }
+.hero h1 { letter-spacing: 1px; }
+.btn { width: 100%; max-width: 320px; }
+  table { font-size:.8rem; }
+  th, td { padding: 10px 6px; }
+}
 </style>
 </head>
 <body>
-
 <nav>
-<a href="#home">Home</a><a href="#features">Features</a><a href="#download">Download</a>
-<a href="#screenshots">Screenshots</a><a href="#benchmarks">Benchmarks</a><a href="#docs">Install</a>
-<a href="#roadmap">Roadmap</a><a href="#support">Support</a><a href="#sources">Source</a>
+<a href="#home">Home</a><a href="#whats-new">What's New</a><a href="#features">Features</a><a href="#source">Source</a><a href="#download">Download</a>
+<a href="#benchmarks">Benchmarks</a><a href="#docs">Install</a><a href="#roadmap">Roadmap</a><a href="#support">Support</a>
 </nav>
 
 <section class="hero" id="home">
 <h1>👑 GAMMA LINUX</h1>
-<p>Royal Edition Ultra-Lite • Resurrect Obsolete Hardware</p>
-<a href="#download" class="btn">⬇️ Download v2.3.0</a>
-<a href="#features" class="btn ghost">✨ See Features</a>
+<p>v2.6.5 Tank Edition • 0 Bloat. 100% Freedom</p>
+<a href="#download" class="btn">⬇️ Get v2.6.5 ISO</a>
+<a href="#whats-new" class="btn ghost">🔥 What's New?</a>
+<br>
+<a href="https://m.me/TakiAtGamma" class="btn msn" target="_blank">💬 Chat on Messenger <span class="badge-24"><span class="dot"></span>24/7</span></a>
 <div class="container" style="margin-top: 40px;">
 <div class="quote">"Alpha failed. Beta crashed. Gamma survives. Because no PC deserves to die!" ♾️🇩🇿</div>
 </div>
 </section>
 
+<section id="whats-new" style="background: linear-gradient(180deg, #030303 0%, #070707 100%);">
+<div class="container">
+<h2>🚀 What's New in v2.6.5 Tank?</h2>
+<div class="grid">
+<div class="card" style="grid-column: span 1;">
+<h3>🧊 Absolute Zero Bloat Policy</h3>
+<p><strong>No Browser. No Snap. No Flatpak. No Telemetry.</strong> Gamma Linux ships as a pure skeleton. You choose Firefox, Brave, Lynx, or nothing. The user is 100% free from day 1.</p>
+</div>
+<div class="card">
+<h3>⚙️ Universal Boot Engine v2</h3>
+<p>Full BIOS Legacy + UEFI + IA32 support. Dynamic <code>kexec</code> auto-detect injects safe kernel params for old Intel, AMD, Nvidia GPUs. No <code>GRUB></code> rescue.</p>
+</div>
+<div class="card">
+<h3>🛡️ Anti-Fragile Build System</h3>
+<p>Optimized 3-Edition Matrix. Built cleanly without broken or legacy-locked package dependencies like task-standard, ensuring deterministic ISO builds.</p>
+</div>
+<div class="card">
+<h3>👻 Ghost Mode RAM</h3>
+<p>Per-Edition ZRAM Tuning. Legacy-32 uses an aggressive 200% ZRAM + Swappiness 100. Pro-MaxMini leverages EarlyOOM + smart cache pressure handling.</p>
+</div>
+<div class="card">
+<h3>🖥️ Openbox + Enlightenment</h3>
+<p>Ultra-optimized desktop environments featuring Materia-Dark + Papirus. Compositing tuned to push idle RAM footprint down to the absolute absolute minimum.</p>
+</div>
+<div class="card">
+<h3>🗽 User Freedom First</h3>
+<p><strong>No Forced Browser:</strong> Firefox, Brave, Chromium, Lynx... You decide. We ship pure desktop environments. You add only what YOU need. That's real freedom.</p>
+</div>
+</div>
+</div>
+</section>
+
 <section id="features">
 <div class="container">
-<h2>⚡ Why Gamma?</h2>
+<h2>⚡ Core Features</h2>
 <div class="grid">
-<div class="card"><div class="icon">👻</div><h3>Ghost Mode RAM</h3><p>ZRAM 50% + Swappiness 100. Runs smooth on 1GB RAM PCs that choke on Lubuntu.</p></div>
-<div class="card"><div class="icon">⚙️</div><h3>Zero Bloat</h3><p>No Snap. No Flatpak. No Telemetry. Pure APT. ISO only 1.18GB vs 2.5GB.</p></div>
-<div class="card"><div class="icon">🖥️</div><h3>LXQt + Openbox</h3><p>Ultra-light desktop with Materia-Dark + Papirus. Idle RAM: 148MB only.</p></div>
-<div class="card"><div class="icon">🔒</div><h3>Secure Boot</h3><p>UEFI + BIOS Hybrid with signed GRUB. Boots on any PC from 2005 to 2026.</p></div>
-<div class="card"><div class="icon">🚀</div><h3>Zero Telemetry</h3><p>PC is yours , we respect your privacy, no tracking like windows.</p></div>
-<div class="card"><div class="icon">🛠️</div><h3>Gamma Store Pro </h3><p>Exclusive GTK app store v2.2 - Install.deb without system lockups.</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.2-Royal-13" class=btn>Download</a></div>
+<div class="card"><div class="icon">👻</div><h3>0 Bloat Skeleton</h3><p>Purged ISO files. No pre-installed browser footprint. Install only your desired packages cleanly.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Zero Telemetry</h3><p>No background pings. No metrics tracking. Your PC is yours only.</p></div>
+<div class="card"><div class="icon">🌐</div><h3>Smart Calamares/Ubiquity</h3><p>GUI installer with custom auto-detect scripting + Safe Graphics Fallback. One click install.</p></div>
+</div>
+</div>
+</section>
+
+<section id="source" style="background: linear-gradient(180deg, #070707 0%, #030303 100%);">
+<div class="container">
+<h2>🔓 Source Code & License</h2>
+<div class="card" style="text-align:center; border:2px solid var(--git);">
+<h3>📂 100% Open Source | GPL v3</h3>
+<p style="font-size:1.1rem; max-width: 700px; margin: 0 auto 20px;">
+Gamma Linux is built on transparency. All build scripts, configurations, and code are public.
+Fork it. Audit it. Modify it. No hidden backdoors. No proprietary blobs.
+If you can compile, you can trust.
+</p>
+<a href="https://github.com/takismartgamer123-rgb/Gamma-linux" class="btn git" target="_blank">⭐ View on GitHub</a>
+<a href="https://github.com/takismartgamer123-rgb/Gamma-linux/blob/main/LICENCE.md" class="btn ghost" target="_blank">📜 Read GPL v3</a>
 </div>
 </div>
 </section>
 
 <section id="download">
 <div class="container">
-<h2>💿 Download Editions</h2>
+<h2>💿 Download v2.6.5 Tank</h2>
 <div class="grid">
-<div class="card" style="text-align:center;"><h3>🛑 Legacy 32</h3><span class="tag">512MB RAM | 32-bit</span><p>Debian Bookworm • ~778 MB</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.3.0-FINAL-legacy32" class="btn">Download</a></div>
-<div class="card" style="text-align:center; border:2px solid var(--accent);"><h3>👻 Lite Ghost</h3><span class="tag">1GB RAM | 64-bit</span><p>Ubuntu + ZRAM 50% • ~1.75GB</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.3.0-FINAL-lite-ghost" class="btn">Download</a></div>
-<div class="card" style="text-align:center;"><h3>🔥 Fatih Pro</h3><span class="tag">2GB+ RAM | 64-bit</span><p>Ubuntu + ZRAM 25% • ~1.76GB</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.3.0-FINAL-pro-maxmini" class="btn">Download</a></div>
+<div class="card" style="text-align:center;"><h3>🛑 Legacy-32</h3><span class="tag">512MB RAM | 32-bit</span><p>Debian Bookworm + Enlightenment (E17)</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.6.5-legacy-32" class="btn">Download</a></div>
+<div class="card" style="text-align:center; border:2px solid var(--accent);"><h3>👻 Lite-Ghost</h3><span class="tag">1GB RAM | 64-bit</span><p>Ubuntu 22.04 + Minimal Openbox</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.6.5-lite-ghost" class="btn">Download</a></div>
+<div class="card" style="text-align:center;"><h3>🔥 Pro-MaxMini</h3><span class="tag">2GB+ RAM | 64-bit</span><p>Ubuntu + Openbox + EarlyOOM</p><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/releases/tag/v2.6.5-pro-maxmini" class="btn">Download</a></div>
 </div>
-<p style="text-align:center; margin-top: 30px;">Live Mode: <code>gamma / gamma</code> | Check SHA256SUMS.txt</p>
-</div>
-</section>
-
-<section id="screenshots">
-<div class="container">
-<h2>🖼️ Screenshots (soon)</h2>
-<div class="grid">
-<div class="card"><h3>Desktop</h3><img class="shot" src="https://placehold.co/800x500/0a0a0a/00c853?text=Gamma+LXQt+Desktop" alt="Desktop"></div>
-<div class="card"><h3>Gamma Store</h3><img class="shot" src="https://placehold.co/800x500/0a0a0a/00c853?text=Gamma+Store+v4.1" alt="Store"></div>
-<div class="card"><h3>System Monitor</h3><img class="shot" src="https://placehold.co/800x500/0a0a0a/00c853?text=148MB+RAM+Idle" alt="RAM"></div>
-</div>
+<p style="text-align:center; margin-top: 30px;">Live Account: <code>gamma / gamma</code> | Always check SHA256SUMS.txt</p>
 </div>
 </section>
 
@@ -106,13 +169,14 @@ footer a:hover { color: var(--accent); }
 <div class="container">
 <h2>📊 Performance vs Others</h2>
 <table>
-<thead><tr><th>Metric</th><th>Win 11</th><th>Lubuntu 24</th><th class="tr-gamma">Gamma Lite</th></tr></thead>
+<thead><tr><th>Metric</th><th>Win 11</th><th>Lubuntu 24</th><th class="tr-gamma">Gamma Linux Lite v2.6.5</th></tr></thead>
 <tbody>
-<tr><td>Idle RAM</td><td>3.8 GB</td><td>420 MB</td><td class="tr-gamma">148 MB</td></tr>
-<tr><td>ISO Size</td><td>5.8 GB</td><td>2.5 GB</td><td class="tr-gamma">1.75 GB</td></tr>
-<tr><td>Boot HDD</td><td>45s</td><td>28s</td><td class="tr-gamma">18s</td></tr>
-<tr><td>32-bit CPU</td><td>❌</td><td>❌</td><td class="tr-gamma">✅</td></tr>
-<tr><td>Telemetry</td><td>Yes</td><td>No</td><td class="tr-gamma">ZERO</td></tr>
+<tr><td>Idle RAM</td><td>3.8 GB</td><td>420 MB</td><td class="tr-gamma">~148 MB</td></tr>
+<tr><td>ISO Compression</td><td>Standard</td><td>Standard</td><td class="tr-gamma">957MB ZSTD-22 High-Ratio</td></tr>
+<tr><td>Boot Speed HDD</td><td>45s</td><td>28s</td><td class="tr-gamma">18s</td></tr>
+<tr><td>32-bit Support</td><td>❌</td><td>❌</td><td class="tr-gamma">✅ Legacy-32 Edition</td></tr>
+<tr><td>Browser Preinstalled</td><td>Edge</td><td>Firefox</td><td class="tr-gamma">NONE - User Choice</td></tr>
+<tr><td>Telemetry & Snaps</td><td>Yes</td><td>Yes</td><td class="tr-gamma">ZERO</td></tr>
 </tbody>
 </table>
 </div>
@@ -121,26 +185,23 @@ footer a:hover { color: var(--accent); }
 <section id="docs">
 <div class="container">
 <h2>🛠️ Installation</h2>
-<div class="warning"><h3>⚠️ CRITICAL: Disable Windows Fast Startup- Read or lose Windows !</h3><p>Run <code>powercfg /h off and disable "Fast startup" option in battery settings (Serach in Google)</code> as Admin, or your disk will be read-only.</p></div>
+<div class="warning"><h3>⚠️ CRITICAL: Disable Windows Fast Startup</h3><p>Run <code>powercfg /h off</code> as Administrator in Windows before dual-boot.</p></div>
 <div class="grid">
-<div class="card"><h3>1. Burn USB</h3><p>Use Ventoy or Rufus for windows users or "sudo dd" if you are a professional linux user. Copy ISO. Boot anywhere.</p></div>
-<div class="card"><h3>2. Boot Live (Recommend to test firstly)</h3><p>F12 -> USB -> Login: gamma/gamma</p></div>
-<div class="card"><h3>3. Install</h3><p>Click "Install Gamma". 5 minutes.</p></div>
+<div class="card"><h3>1. Flash USB</h3><p>Use Ventoy or Rufus (DD mode recommended for legacy HP laptops).</p></div>
+<div class="card"><h3>2. Boot Live</h3><p>F12/F11/Esc -> USB -> Login: gamma/gamma</p></div>
+<div class="card"><h3>3. Install</h3><p>Click the custom installer launcher on the desktop environment. Done.</p></div>
 </div>
-</div>
-<div class="card"><h3>NOTE : If "Install Gamma" does not appear in Desktop, Shutdown and boot from USB again and choose "Install Gamma"in boot menu</h3>
 </div>
 </section>
 
 <section id="roadmap">
 <div class="container">
-<h2>🗺️ Roadmap v3.0</h2>
+<h2>🗺️ Roadmap</h2>
 <div class="card">
 <ul>
-<li>✅ v2.3.0 - Ghost Mode + ZRAM 50% [Released]</li>
-<li>🚧 v2.4.0 - ARM64 Build for Raspberry Pi [2026]</li>
-<li>🚧 v3.0.0 - Wayland + Sway Ultra-Lite [2026]</li>
-<li>💡 v3.1.0 - Gamma AI Assistant built-in </li>
+<li>✅ v2.6.5 Tank - 0 Bloat, 3-Edition Matrix, Anti-Fragile Build [Released]</li>
+<li>🚧 v2.8.0 - ARM64 Experimental </li>
+<li>🚧 v3.0.0 - Wayland Native Compositor </li>
 </ul>
 </div>
 </div>
@@ -150,98 +211,70 @@ footer a:hover { color: var(--accent); }
 <div class="container">
 <h2>❤️ Support Gamma Linux</h2>
 <div class="grid">
-
-<div class="card" style="text-align:center;">
-<h3>💚 Vote us on Distro Watch</h3>
-<p>Best way for Gamma to reach all world</p>
-<div class="vote-box">
-<pre id="vote">https://distrowatch.com/dwres.php?waitingdistro=1101&resource=links#new</pre>
-<button class="btn copy-btn" onclick="copyEmail()">📋 Copy</button>
-</div>
-<p style="font-size:.9rem;">Just click "Vote" Button and your vote will be added</p>
-<a href="https://distrowatch.com/dwres.php?waitingdistro=1101&resource=links#new" class="btn ghost" target="_blank"> ( ͡📢 ͜ʖ ͡📢) Vote</a>
-</div>
-
-<div class="card" style="text-align:center; border:2px solid var(--accent);">
-<h3>⭐ Telegram Stars → TON</h3>
-<p>Send Stars in 1 click. I cash them to TON weekly.</p>
-<a href="https://t.me/its_black_taki" class="btn" target="_blank">⭐ Send Stars</a>
-<p style="font-size:.9rem; margin-top:10px;">@its_black_taki -> 3 dots -> Send Gift -> Choose amount -> confirm -> Thanks 🙏</p></p></p></p>
-</div>
-
-<div class="card" style="text-align:center;">
-<h3>💎 TON Wallet</h3>
-<p>Direct TON/USDT. 0% fees. Best for crypto.</p>
-<pre style="font-size:.85rem; text-align:left; word-break:break-all;">
-UQBMqSAS51v9NvuwQfZCkJsGv56N6qIRE_eM7CNXEY8h-3JN
-</pre>
-<p style="font-size:.9rem;">Replace with your TON address later</p>
-<a href="https://tonkeeper.com/" class="btn ghost" target="_blank">⬇️ Tonkeeper</a>
-</div>
-
-</div>
-
-<h2 style="margin-top: 80px;">🏆 Hall of Fame</h2>
-<div class="card" style="text-align:center;">
-<p style="font-size: 1.1rem; line-height:2;">
-<b>Fateh</b> - My father ♾️<br>
-<b>@Agatoss</b> - For staring repo ⭐❤️🇹🇳<br>
-<b>@JesConsuegra</b> - For watching repo 👁️💖<br>
-<b>@AverageHorse</b> - For staring repo ⭐❤️<br>
-<b>Voters + Stars + TON Supporters</b> - You guys ❤️<br>
+<div class="card" style="grid-column: 1 / -1; text-align:center; border:2px solid var(--accent);">
+<h3>🗽 Gamma Linux is 100% Free</h3>
+<p style="font-size:clamp(1rem, 2.5vw, 1.2rem);">
+<strong>No money needed. No donation needed. No account needed.</strong><br>
+Gamma Linux is built for freedom, not profit. Donations are only for those who <em>want</em> to support the project.
+If you can't donate, you are still a full member of Gamma Linux. Period.
 </p>
 </div>
+<div class="card" style="text-align:center;">
+<h3>💬 Messenger 24/7</h3>
+<p>Direct chat with the developer. Always online.</p>
+<a href="https://m.me/TakiAtGamma" class="btn msn" target="_blank">💬 Message Me <span class="badge-24"><span class="dot"></span>Online</span></a>
 </div>
-</section>
-
-<section id="sources">
-<div class="container">
-<h2>📦 Open Source GPL v3</h2>
-<div class="card">
-<p>100% Transparent. No spyware. Rebuild it yourself:</p>
-<pre>git clone https://github.com/takismartgamer123-rgb/Gamma-linux.git</pre>
-<a href="https://github.com/takismartgamer123-rgb/Gamma-linux" class="btn">GitHub Repo</a>
-<a href="https://github.com/takismartgamer123-rgb/Gamma-linux/blob/main/LICENCE.md" class="btn ghost">License</a>
+<div class="card" style="text-align:center;">
+<h3>💚 Vote DistroWatch</h3>
+<p>Help Gamma Linux reach more users.</p>
+<div class="vote-box">
+<pre id="vote">https://distrowatch.com/dwres-mobile.php?waitingdistro=1101&resource=links#new</pre>
+<button class="btn copy-btn" onclick="copyEmail()">📋 Copy URL</button>
+<a href="https://distrowatch.com/dwres-mobile.php?waitingdistro=1101&resource=links#new" class="btn vote" target="_blank">( ͡📢 ͜ʖ ͡📢) Vote</a>
 </div>
 </div>
-</section>
-
-<section id="about">
-<div class="container">
-<h2>🛠️ About The Developer</h2>
-<div class="card" style="text-align:center; border-color: var(--accent);">
-<h3>Taki - 17 Years Old</h3>
-<p><b>Guelma, Algeria 🇩🇿</b> | Self-Taught LFS Developer</p>
-<p><i>"Mission: No PC deserves to die, No ISO deserves to be fat."</i> 🎯</p>
-<p>Started at 16. Released v1.4 at 17. Building the future on old hardware.</p>
+<div class="card" style="text-align:center;">
+<h3>💎 TON Wallet</h3>
+<p>Direct decentralized support.</p>
+<pre>UQBMqSAS51v9NvuwQfZCkJsGv56N6qIRE_eM7CNXEY8h-3JN</pre>
+</div>
+</div>
+<h2 style="margin-top: 80px;">🏆 Hall of Fame</h2>
+<div class="card" style="text-align:center;">
+<p style="font-size: clamp(1rem, 2.5vw, 1.1rem); line-height:2;">
+<b>Fateh</b> - My father ♾️<br>
+<b>Jennase Bryan</b> - Special thanks! First Official Tester & QA Hero 🧪🔥<br>
+<b>@Agatoss</b> - For starring repo ⭐❤️🇹🇳<br>
+<b>@JesConsuegra</b> - For watching repo 👁️💖<br>
+<b>@AverageHorse</b> - For starring repo ⭐❤️<br>
+<b>All Community Voters</b> - Thank you! ❤️<br>
+</p>
 </div>
 </div>
 </section>
 
 <footer>
 <div class="footer-grid">
-<div><h4>Download</h4><a href="#download">Legacy 32</a><a href="#download">Lite Ghost</a><a href="#download">Fatih Pro</a></div>
-<div><h4>Community</h4><a href="https://t.me/GammaLinuxDZ">Telegram</a><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/issues">Issues</a><a href="#sources">GitHub</a></div>
-<div><h4>Docs</h4><a href="#docs">Install Guide</a><a href="#benchmarks">Benchmarks</a><a href="#roadmap">Roadmap</a></div>
-<div><h4>Legal</h4><a href="https://github.com/takismartgamer123-rgb/Gamma-linux/blob/main/LICENCE.md">GPL v3</a><a href="#sources">Source Code</a></div>
+<div><h4>Download</h4><a href="#download">Legacy-32</a><a href="#download">Lite-Ghost</a><a href="#download">Pro-MaxMini</a></div>
+<div><h4>Community</h4><a href="https://m.me/TakiAtGamma">Messenger 24/7</a><a href="https://github.com/takismartgamer123-rgb/Gamma-linux">GitHub</a></div>
+<div><h4>Resources</h4><a href="#docs">Install Guide</a><a href="#source">Source Code</a><a href="#roadmap">Roadmap</a></div>
 </div>
 <div class="copy">
+<b style="color:var(--accent); font-size:clamp(1rem, 2.5vw, 1.1rem);">
+I'm not just a developer, I'm a friend ♾️<br>
+I believe: no PC deserves to die... and no money deserves to be wasted.
+</b><br><br>
 Gamma Linux GPL v3 | Made with ❤️ in Guelma, Algeria 🇩🇿<br>
 Dedicated to my father, <b>Fateh</b> ♾️
 </div>
 </footer>
-
 <script>
 function copyEmail() {
-  const vote = document.getElementById('vote').innerText;
-  navigator.clipboard.writeText(email);
-  const btn = document.querySelector('.copy-btn');
-  btn.innerText = '✅ Copied!';
-  btn.classList.add('copied');
-  setTimeout(() => {
-    btn.innerText = '📋 Copy';
-    btn.classList.remove('copied');
-  }, 2000);
+const voteText = document.getElementById('vote').innerText;
+navigator.clipboard.writeText(voteText);
+const btn = document.querySelector('.btn.copy-btn');
+btn.innerText = '✅ Copied!';
+setTimeout(() => { btn.innerText = '📋 Copy URL'; }, 2000);
 }
 </script>
 </body>
